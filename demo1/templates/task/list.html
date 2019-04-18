@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="content">
+        <h1>书目</h1>
+        <ul>
+            {% for book in booklist %}
+                {#<li><a href="/task/detail/{{book.id}}">{{book.btitle}}</a></li>#}
+                <li><a href="{% url 'task:detail' book.id %}">{{book.btitle}}</a><a href="{% url 'task:delete' book.id %}">删除</a></li>
+            {% empty %}
+                <h3>书目为空</h3>
+            {% endfor %}
+        </ul>
+        <br>
+        {#<a href="/task/home">返回首页</a>#}
+        <a href="{% url 'task:home' %}">返回首页</a>
+    </div>
+</body>
+</html>

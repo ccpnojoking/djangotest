@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="content">
+        <h1>{{question}}</h1>
+    <ul>
+        {% for an in answerlist %}
+            <li>{{an.acontent}}----{{an.acount}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'vote:list' %}">返回问题列表</a>
+    </div>
+</body>
+</html>

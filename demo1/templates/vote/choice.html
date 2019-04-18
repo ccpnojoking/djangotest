@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>命运石之门</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="content">
+        <h1>{{question}}</h1>
+        <form action="{% url 'vote:count' %}" method="post">
+            <label for="ch">选择：</label>
+            <br>
+            {% for an in answerlist %}
+                <input type="radio" name="ch" value="{{an.id}}">{{an}}<br>
+            {% empty %}
+                <h3>no choice</h3>
+            {% endfor %}
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>
